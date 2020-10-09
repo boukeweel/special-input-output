@@ -28,6 +28,12 @@ public class Car_controller : MonoBehaviour
 
     public float r_drag = 3f;
 
+    public Transform LeftWheel;
+    public Transform rightwheel;
+
+    public float maxwheelturn;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +50,10 @@ public class Car_controller : MonoBehaviour
         if(Input.GetAxis("Vertical") > 0)
         {
             speedInput = Input.GetAxis("Vertical") * forwardSpeed * 1000f;
+            if(forwardSpeed < maxSpeed)
+            {
+                forwardSpeed += 0.1f;
+            }
         }
         else if(Input.GetAxis("Vertical") < 0)
         {
@@ -52,12 +62,28 @@ public class Car_controller : MonoBehaviour
 
         turnInput = Input.GetAxis("Horizontal");
 
+        if(transform.rotation.x == 0)
+        {
+            if (grounded)
+            {
+                sph_Rig.constraints = RigidbodyConstraints.FreezePositionY;
+            }
+            else
+            {
+                sph_Rig.constraints = RigidbodyConstraints.None;
+            }
+        }
+        else
+        {
+            sph_Rig.constraints = RigidbodyConstraints.None;
+        }
+
         if (grounded)
         {
             transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput * turnStrength * Time.deltaTime * Input.GetAxis("Vertical"), 0f));
         }
-        
-
+        LeftWheel.localRotation = Quaternion.Euler(LeftWheel.localRotation.eulerAngles.x, (turnInput * maxwheelturn) - 180, LeftWheel.localRotation.eulerAngles.z);
+        rightwheel.localRotation = Quaternion.Euler(rightwheel.localRotation.eulerAngles.x, (turnInput * maxwheelturn) , rightwheel.localRotation.eulerAngles.z);
         transform.position = sph_Rig.transform.position;
     }
 
