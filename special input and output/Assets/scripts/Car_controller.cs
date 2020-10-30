@@ -33,13 +33,28 @@ public class Car_controller : MonoBehaviour
 
     public float maxwheelturn;
 
+    public bool gasHold;
+    public bool breakHold;
+    public float addgas;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
         sph_Rig.transform.parent = null;
+
+        //if (SystemInfo.supportsGyroscope)
+        //{
+        //    Debug.Log("yeet");
+        //    Input.gyro.enabled = true;
+        //}
         
+    }
+
+    private Quaternion GyroToUnity(Quaternion q)
+    {
+        return new Quaternion(0, q.z, 0, 0);
     }
 
     // Update is called once per frame
@@ -47,43 +62,38 @@ public class Car_controller : MonoBehaviour
     {
         speedInput = 0f;
         //turn
-        if(Input.GetAxis("Vertical") > 0)
+        /*Input.GetAxis("Vertical") > 0*/
+        if (gasHold)
         {
-            speedInput = Input.GetAxis("Vertical") * forwardSpeed * 1000f;
+            speedInput = addgas * forwardSpeed * 1000f;
             if(forwardSpeed < maxSpeed)
             {
-                forwardSpeed += 0.1f;
+                forwardSpeed += 0.01f;
             }
         }
-        else if(Input.GetAxis("Vertical") < 0)
+        else if (breakHold)
         {
-            speedInput = Input.GetAxis("Vertical") * backwardSpeed * 1000f;
+            speedInput = addgas * backwardSpeed * 1000f;
+            forwardSpeed = 1;
         }
 
-        turnInput = Input.GetAxis("Horizontal");
 
-        if(transform.rotation.x == 0)
-        {
-            if (grounded)
-            {
-                sph_Rig.constraints = RigidbodyConstraints.FreezePositionY;
-            }
-            else
-            {
-                sph_Rig.constraints = RigidbodyConstraints.None;
-            }
-        }
-        else
-        {
-            sph_Rig.constraints = RigidbodyConstraints.None;
-        }
+
+        turnInput = Input.acceleration.x;
+        //turnInput = Input.GetAxis("Horizontal");
+
+
 
         if (grounded)
         {
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput * turnStrength * Time.deltaTime * Input.GetAxis("Vertical"), 0f));
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput * turnStrength * Time.deltaTime * addgas, 0f));
         }
+
+        //wheel rotation
         LeftWheel.localRotation = Quaternion.Euler(LeftWheel.localRotation.eulerAngles.x, (turnInput * maxwheelturn) - 180, LeftWheel.localRotation.eulerAngles.z);
         rightwheel.localRotation = Quaternion.Euler(rightwheel.localRotation.eulerAngles.x, (turnInput * maxwheelturn) , rightwheel.localRotation.eulerAngles.z);
+
+        //follow the shpere
         transform.position = sph_Rig.transform.position;
     }
 
@@ -114,5 +124,29 @@ public class Car_controller : MonoBehaviour
             sph_Rig.drag = 0.1f;
             sph_Rig.AddForce(Vector3.up * -gravaityForce * 100f);
         }
+    }
+
+    //give gas when you press the button
+    public void GiveGas()
+    {
+        gasHold = true;
+        addgas = 1;
+    }
+    //whe 
+    public void ReleasGas()
+    {
+        gasHold = false;
+        addgas = 0;
+    }
+
+    public void HoldBreak()
+    {
+        breakHold = true;
+        addgas = -1;
+    }
+    public void ReleaseBreak()
+    {
+        breakHold = false;
+        addgas = 0;
     }
 }
