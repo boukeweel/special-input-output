@@ -39,6 +39,7 @@ public class Car_controller : MonoBehaviour
 
     [HideInInspector] public bool ableToMove;
 
+    private bool released = false;
 
 
     // Start is called before the first frame update
@@ -69,7 +70,7 @@ public class Car_controller : MonoBehaviour
         {
 
 
-            if (gasHold)
+            if (gasHold && released == false)
             {
                 speedInput = addgas * forwardSpeed * 1000f;
                 if (forwardSpeed < maxSpeed)
@@ -101,6 +102,9 @@ public class Car_controller : MonoBehaviour
 
             //follow the shpere
             transform.position = sph_Rig.transform.position;
+
+            //slow down the car but it still needs to roll for a time
+            SlowDown();
         }
     }
 
@@ -131,6 +135,29 @@ public class Car_controller : MonoBehaviour
             sph_Rig.drag = 0.1f;
             sph_Rig.AddForce(Vector3.up * -gravaityForce * 100f);
         }
+        
+    }
+    //slow the car down in a slow manner
+    public void SlowDown()
+    {
+        if(released == true)
+        {
+            speedInput = addgas * forwardSpeed * 1000f;
+            if (forwardSpeed > 0)
+            {
+
+                forwardSpeed -= 0.01f;
+            }
+            if (forwardSpeed <= 0)
+            {
+                forwardSpeed = 0;
+                addgas = 0;
+                gasHold = false;
+                released = false;
+            }
+        }
+        
+        
     }
 
     //give gas when you press the button
@@ -138,12 +165,13 @@ public class Car_controller : MonoBehaviour
     {
         gasHold = true;
         addgas = 1;
+        released = false;
     }
     //whe 
     public void ReleasGas()
     {
-        gasHold = false;
-        addgas = 0;
+        
+        released = true;
     }
 
     public void HoldBreak()

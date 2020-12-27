@@ -46,7 +46,7 @@ public class TileTool : EditorWindow
         //make a prefab from all slected objects and put it in the prefabes folder
         foreach (GameObject obj in Selection.gameObjects)
         {
-            string localpath = "Assets/prefabs/test/" + obj.name + ".prefab";
+            string localpath = "Assets/prefabs" + obj.name + ".prefab";
 
             localpath = AssetDatabase.GenerateUniqueAssetPath(localpath);
 
