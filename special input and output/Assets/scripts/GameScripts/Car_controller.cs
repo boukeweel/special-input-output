@@ -6,6 +6,7 @@ public class Car_controller : MonoBehaviour
 {
 
     public Rigidbody sph_Rig;
+    public SphereCollider sph_col;
 
     public float forwardSpeed = 8f;
     public float backwardSpeed = 4f;
@@ -110,18 +111,9 @@ public class Car_controller : MonoBehaviour
 
     private void FixedUpdate()
     {
-        grounded = false;
-        RaycastHit hit;
-        //check if the car is on the ground
-
-        if(Physics.Raycast(groundRayPoint.position, -transform.up, out hit, groundRayLength, whatIsGround))
-        {
-            grounded = true;
-
-            transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
-        }
 
 
+        CheckIfGrounded();
         if (grounded)
         {
             sph_Rig.drag = r_drag;
@@ -137,6 +129,21 @@ public class Car_controller : MonoBehaviour
         }
         
     }
+    //check if the car is grounded
+    private void CheckIfGrounded()
+    {
+        grounded = false;
+        RaycastHit hit;
+        //check if the car is on the ground
+
+        if (Physics.Raycast(groundRayPoint.position, -transform.up, out hit, groundRayLength, whatIsGround))
+        {
+            grounded = true;
+
+            transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+        }
+    }
+
     //slow the car down in a slow manner
     public void SlowDown()
     {
@@ -184,4 +191,7 @@ public class Car_controller : MonoBehaviour
         breakHold = false;
         addgas = 0;
     }
+
+    
+
 }

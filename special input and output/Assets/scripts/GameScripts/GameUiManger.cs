@@ -62,10 +62,10 @@ public class GameUiManger : MonoBehaviour
 
     public void Retry()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void Contineu()
     {
-
+        SceneManager.LoadScene("LevelSelction");
     }
 }

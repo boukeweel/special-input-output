@@ -298,8 +298,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000076294, y: -0.000041962}
-  m_SizeDelta: {x: 800, y: 449.7816}
+  m_AnchoredPosition: {x: 0.0000076294, y: -0.0000038146973}
+  m_SizeDelta: {x: 800, y: 479.99997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &257674688
 MonoBehaviour:
@@ -866,7 +866,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 800, y: 480}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
