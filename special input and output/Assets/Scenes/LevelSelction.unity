@@ -974,7 +974,7 @@ RectTransform:
   m_GameObject: {fileID: 240621261}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.77764, y: 0.77764, z: 0.77764}
   m_Children:
   - {fileID: 1238894782}
   - {fileID: 154780681}
@@ -984,7 +984,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -310, y: 88}
+  m_AnchoredPosition: {x: -265, y: 63}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &240621263
@@ -2430,7 +2430,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 915898827}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 10325534}
+        m_TargetAssemblyTypeName: LevelSelectionUI, Assembly-CSharp
+        m_MethodName: SelectLevel
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Level2
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &915898827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2637,7 +2649,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -291.6, y: 191}
+  m_AnchoredPosition: {x: -291.6, y: 144}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1160799870
@@ -3542,7 +3554,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.63, y: 192.9}
+  m_AnchoredPosition: {x: 8.63, y: 146}
   m_SizeDelta: {x: 301.169, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1656257304
@@ -4246,7 +4258,7 @@ RectTransform:
   m_GameObject: {fileID: 2086024302}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.77, y: 0.77, z: 0.77}
   m_Children:
   - {fileID: 1527442454}
   m_Father: {fileID: 10325533}
@@ -4254,7 +4266,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -196.6}
+  m_AnchoredPosition: {x: -2, y: -158}
   m_SizeDelta: {x: 160, y: 44.838104}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2086024304
@@ -4299,7 +4311,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2086024305}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 10325534}
+        m_TargetAssemblyTypeName: LevelSelectionUI, Assembly-CSharp
+        m_MethodName: BackToMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2086024305
 MonoBehaviour:
   m_ObjectHideFlags: 0

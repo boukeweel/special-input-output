@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class WatterColCheck : MonoBehaviour
 {
-    private GameManger gm;
+    public GameManger gm;
     private void Awake()
     {
-        gm = GetComponent<GameManger>();
+        gm = GameManger.FindObjectOfType<GameManger>();
     }
     private void OnCollisionEnter(Collision collision)
     {
