@@ -16,5 +16,9 @@ public class WatterColCheck : MonoBehaviour
         {
             gm.ReloadScene();
         }
+        if (collision.collider.CompareTag("Car"))
+        {
+            gm.ReloadScene();
+        }
     }
 }

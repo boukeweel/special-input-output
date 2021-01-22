@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Water
+  - Car
   layers:
   - Default
   - TransparentFX

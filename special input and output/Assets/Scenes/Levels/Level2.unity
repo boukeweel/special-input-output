@@ -1303,7 +1303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4457833934286595256, guid: 910de0ed31cade843a6c02d04e8c0023, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4457833934286595256, guid: 910de0ed31cade843a6c02d04e8c0023, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -25322,6 +25322,10 @@ PrefabInstance:
     - target: {fileID: 5395256225063429258, guid: 00fc807ab3b59fc4e913777ac25794ae, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6899472942884461145, guid: 00fc807ab3b59fc4e913777ac25794ae, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8362176445901002555, guid: 00fc807ab3b59fc4e913777ac25794ae, type: 3}
       propertyPath: m_LocalPosition.x
@@ -58170,7 +58174,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!4 &2078117359 stripped
 Transform:

@@ -86,7 +86,7 @@ public class Car_controller : MonoBehaviour
             }
 
 
-
+            //I am using this as tilt controls because my phone does not support cyroscoop so this was the selution
             turnInput = Input.acceleration.x;
             //turnInput = Input.GetAxis("Horizontal");
 
